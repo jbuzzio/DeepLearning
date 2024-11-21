@@ -54,9 +54,9 @@ for i in range(total_images):
     block_data = datos.iloc[i*num_rows:(i+1)*num_rows]
 
     # Normalizar los datos entre 0 y 255
-    # block_normalized = ((block_data - block_data.min().min()) / (block_data.max().max() - block_data.min().min()) )* 255
-    # block_normalized = (block_data - block_data.min(axis=0)) / (block_data.max(axis=0) - block_data.min(axis=0)) * 255
-    #block_normalized = block_normalized.astype(np.uint8)
+    
+    block_normalized = (block_data - block_data.min(axis=0)) / (block_data.max(axis=0) - block_data.min(axis=0)) * 255
+    block_normalized = block_normalized.astype(np.uint8)
 
     # Paso 3: Convertir el bloque en una imagen de 60x60 con 3 canales (RGB)
     image_data = block_data.values.reshape((60, 60, 3))
